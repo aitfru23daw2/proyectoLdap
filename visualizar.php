@@ -42,7 +42,7 @@ if ($_GET['uid'] && $_GET['unorg'] ) {
         <label for="unorg">Unidad Organizativa del usuario:</label><br>
         <input type="text" id="unorg" name="unorg" required><br><br>
         <input type="submit" value="Visualizar">
-    </form>
+    </form><br>
      <a href="http://zend-aifrya.fjeclot.net/projecteAifrya/menu.php">Torna al menú</a>
 </body>
 </html>

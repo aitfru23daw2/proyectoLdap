@@ -81,5 +81,8 @@ if($ldap->add($dn, $nova_entrada)) {
             <input type="submit" value="Envia">
             <input type="reset" value="Neteja">
         </form>
+        <br>
+     <a href="http://zend-aifrya.fjeclot.net/projecteAifrya/menu.php">Torna al menú</a>
+
 	</body>
 </html>
