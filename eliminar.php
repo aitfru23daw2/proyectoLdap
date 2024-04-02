@@ -4,7 +4,7 @@ use Laminas\Ldap\Ldap;
 
 ini_set('display_errors', 0);
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_POST['unorg'] && $_POST['uid'] ) {
     $uid = $_POST['uid'];  // Posar usr?
     $unorg = $_POST['unorg']; // Posar usuaris
     $dn = 'uid=' . $uid . ',ou=' . $unorg . ',dc=fjeclot,dc=net';
@@ -38,12 +38,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 <body>
     <h2>Eliminar usuaio</h2>
-    <form method="post" action="eliminar.php">
+    <form action="http://zend-aifrya.fjeclot.net/projecteAifrya/eliminar.php" method="POST">
         <label for="uid">Nombre del usuario a eliminar:</label><br>
         <input type="text" id="uid" name="uid"><br><br>
         <label for="uid">Unidad Organizativa del usuario:</label><br>
         <input type="text" id="unorg" name="unorg"><br><br>
         <input type="submit" value="Eliminar">
     </form>
+    <a href="http://zend-aifrya.fjeclot.net/projecteAifrya/menu.php">Torna al menú</a>
 </body>
 </html>

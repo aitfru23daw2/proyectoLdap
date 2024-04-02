@@ -2,13 +2,12 @@
 require 'vendor/autoload.php';
 use Laminas\Ldap\Ldap;
 
-ini_set('display_errors', 1);
+ini_set('display_errors', 0);
 
-if ($_SERVER["REQUEST_METHOD"] == "GET") {
-    $uid = $_GET['uid'];
-    $unorg = $_GET['unorg'];
+if ($_GET['uid'] && $_GET['unorg'] ) {
     
-    $dn = 'uid=' . $uid . ',ou=' . $unorg . ',dc=fjeclot,dc=net';
+    
+    $dn = 'uid=' . $_GET['uid'] . ',ou=' . $_GET['unorg'] . ',dc=fjeclot,dc=net';
     
     $opcions = [
         'host' => 'zend-aifrya.fjeclot.net',
@@ -21,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
     
     $ldap = new Ldap($opcions);
     $ldap->bind();
-    $entrada='uid='.$_GET['usr'].',ou='.$_GET['ou'].',dc=fjeclot,dc=net';
+    $entrada='uid='.$_GET['uid'].',ou='.$_GET['unorg'].',dc=fjeclot,dc=net';
     $usuari=$ldap->getEntry($entrada);
     echo "<b><u>".$usuari["dn"]."</b></u><br>";
     foreach ($usuari as $atribut => $dada) {
@@ -37,12 +36,13 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 </head>
 <body>
     <h2>Visualizar usuario</h2>
-    <form method="get" action="visualizar.php">
-        <label for="uid">Nombre del usuario a Visualizar:</label><br>
+    <form action="http://zend-aifrya.fjeclot.net/projecteAifrya/visualizar.php" method="GET">
+        <label for="uid">Uid del usuario a Visualizar:</label><br>
         <input type="text" id="uid" name="uid" required><br><br>
         <label for="unorg">Unidad Organizativa del usuario:</label><br>
         <input type="text" id="unorg" name="unorg" required><br><br>
         <input type="submit" value="Visualizar">
     </form>
+     <a href="http://zend-aifrya.fjeclot.net/projecteAifrya/menu.php">Torna al menú</a>
 </body>
 </html>
