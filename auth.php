@@ -30,6 +30,6 @@
 		</title>
 	</head>
 	<body>
-		<a href="http://zend-aifrya.fjeclot.net/projecteLdap/index.php">Torna a la pàgina inicial</a>
+		<a href="http://zend-aifrya.fjeclot.net/projecteAifrya/index.php">Torna a la pàgina inicial</a>
 	</body>
 </html>

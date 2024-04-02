@@ -10,6 +10,6 @@
 		<h3> Autor: aitfru23daw2</h3>
 		<h3> Correu: 464425.clot@fje.edu</h3>
 		<h3> Github: https://github.com/aitfru23daw2/projecteLdap.git</h3>
-		<a href="http://zend-aifrya.fjeclot.net/projecteLdap/login.php">Inicia sessió</a>
+		<a href="http://zend-aifrya.fjeclot.net/projecteAifrya/login.php">Inicia sessió</a>
 	</body>
 </html>
