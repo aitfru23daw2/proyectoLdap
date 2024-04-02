@@ -2,11 +2,12 @@
 require 'vendor/autoload.php';
 use Laminas\Ldap\Ldap;
 
-ini_set('display_errors', 0);
+ini_set('display_errors', 1);
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $uid = $_POST['uid'];  // Posar usr?
-    $unorg = $_POST['unorg']; // Posar usuaris
+if ($_SERVER["REQUEST_METHOD"] == "GET") {
+    $uid = $_GET['uid'];
+    $unorg = $_GET['unorg'];
+    
     $dn = 'uid=' . $uid . ',ou=' . $unorg . ',dc=fjeclot,dc=net';
     
     $opcions = [
@@ -17,14 +18,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         'accountDomainName' => 'fjeclot.net',
         'baseDn' => 'dc=fjeclot,dc=net',
     ];
-   
+    
     $ldap = new Ldap($opcions);
     $ldap->bind();
-    try{
-        $ldap->delete($dn);
-        echo "<b>Entrada esborrada</b><br>";
-    } catch (Exception $e){
-        echo "<b>Aquesta entrada no existeix</b><br>";
+    $entrada='uid='.$_GET['usr'].',ou='.$_GET['ou'].',dc=fjeclot,dc=net';
+    $usuari=$ldap->getEntry($entrada);
+    echo "<b><u>".$usuari["dn"]."</b></u><br>";
+    foreach ($usuari as $atribut => $dada) {
+        if ($atribut != "dn") echo $atribut.": ".$dada[0].'<br>';
     }
 }
 ?>
@@ -32,18 +33,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eliminar</title>
+    <title>Visualizar</title>
 </head>
 <body>
-    <h2>Eliminar usuaio</h2>
-    <form method="post" action="visualizar.php">
-        <label for="uid">Nombre del usuario:</label><br>
-        <input type="text" id="uid" name="uid"><br><br>
-        <label for="uid">Unidad Organizativa del usuario:</label><br>
-        <input type="text" id="unorg" name="unorg"><br><br>
-        <input type="submit" value="Eliminar">
+    <h2>Visualizar usuario</h2>
+    <form method="get" action="visualizar.php">
+        <label for="uid">Nombre del usuario a Visualizar:</label><br>
+        <input type="text" id="uid" name="uid" required><br><br>
+        <label for="unorg">Unidad Organizativa del usuario:</label><br>
+        <input type="text" id="unorg" name="unorg" required><br><br>
+        <input type="submit" value="Visualizar">
     </form>
 </body>
 </html>
