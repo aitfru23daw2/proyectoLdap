@@ -6,6 +6,13 @@ use Laminas\Ldap\Ldap;
 ini_set('display_errors', 0);
 #Dades de la nova entrada
 #
+session_start(); // Iniciar la sesión
+
+if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
+    header("location: login.php");
+    exit();
+}
+
     if ($_POST['uid'] && $_POST['unorg'] ) {
     $uid = $_POST['uid'];
     $unorg = $_POST['unorg'];

@@ -4,6 +4,13 @@ use Laminas\Ldap\Ldap;
 
 ini_set('display_errors', 0);
 
+session_start(); // Iniciar la sesión
+
+if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
+    header("location: login.php");
+    exit();
+}
+
 if ($_POST['unorg'] && $_POST['uid'] ) {
     $uid = $_POST['uid'];  // Posar usr?
     $unorg = $_POST['unorg']; // Posar usuaris

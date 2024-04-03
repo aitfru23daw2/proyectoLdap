@@ -3,6 +3,8 @@
 	use Laminas\Ldap\Ldap;
 
 	ini_set('display_errors', 0);
+	session_start();
+	
 	if ($_POST['cts'] && $_POST['adm']){
 	   $opcions = [
             'host' => 'zend-aifrya.fjeclot.net',
@@ -17,6 +19,8 @@
 	   $ctsnya=$_POST['cts'];
 	   try{
 	       $ldap->bind($dn,$ctsnya);
+	       $_SESSION['authenticated'] = true;
+	       $_SESSION['username'] = $_POST['adm'];
 	       header("location: menu.php");
 	   } catch (Exception $e){
 	       echo "<b>Contrasenya incorrecta</b><br><br>";	       

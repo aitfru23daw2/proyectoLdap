@@ -1,6 +1,14 @@
 <?php
+
 require 'vendor/autoload.php';
 use Laminas\Ldap\Ldap;
+
+session_start(); // Iniciar la sesión
+
+if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
+    header("location: login.php");
+    exit();
+}
 
 ini_set('display_errors', 0);
 
