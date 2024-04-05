@@ -1,4 +1,6 @@
 <?php 
+require 'vendor/autoload.php';
+session_start();
 if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
     header("location: login.php");
     exit();
@@ -14,11 +16,13 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
 <body>
     <h1>Menú de la aplicación LDAP</h1>
     <ul>
-        <li><a href="http://zend-aifrya.fjeclot.net/projecteAifrya/visualizar.php">Visualizar datos del usuario</a></li>
-        <li><a href="http://zend-aifrya.fjeclot.net/projecteAifrya/agregar.php">Agregar nuevo usuario</a></li>
-        <li><a href="http://zend-aifrya.fjeclot.net/projecteAifrya/eliminar.php">Eliminar usuario</a></li>
-        <li><a href="http://zend-aifrya.fjeclot.net/projecteAifrya/modificar.php">Modificar usuario</a></li>
+        <li><a href="https://zend-aifrya.fjeclot.net/projecteAifrya/visualizar.php">Visualizar datos del usuario</a></li>
+        <li><a href="https://zend-aifrya.fjeclot.net/projecteAifrya/agregar.php">Agregar nuevo usuario</a></li>
+        <li><a href="https://zend-aifrya.fjeclot.net/projecteAifrya/eliminar.php">Eliminar usuario</a></li>
+        <li><a href="https://zend-aifrya.fjeclot.net/projecteAifrya/modificar.php">Modificar usuario</a></li>
     </ul><br>
-    <a href="http://zend-aifrya.fjeclot.net/projecteAifrya/index.php">Torna a la pàgina inicial</a>
+    <a href="https://zend-aifrya.fjeclot.net/projecteAifrya/index.php">Torna a la pàgina inicial</a>
+    <br>
+    <a href="https://zend-aifrya.fjeclot.net/projecteAifrya/logout.php">Tanca sessió</a>
 </body>
 </html>

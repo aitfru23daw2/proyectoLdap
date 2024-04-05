@@ -91,7 +91,7 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
             <input type="reset" value="Neteja">
         </form>
         <br>
-     <a href="http://zend-aifrya.fjeclot.net/projecteAifrya/menu.php">Torna al menú</a>
+     <a href="https://zend-aifrya.fjeclot.net/projecteAifrya/menu.php">Torna al menú</a>
 
 	</body>
 </html>

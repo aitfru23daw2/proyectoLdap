@@ -44,13 +44,13 @@ if ($_GET['uid'] && $_GET['unorg'] ) {
 </head>
 <body>
     <h2>Visualizar usuario</h2>
-    <form action="http://zend-aifrya.fjeclot.net/projecteAifrya/visualizar.php" method="GET">
+    <form action="https://zend-aifrya.fjeclot.net/projecteAifrya/visualizar.php" method="GET">
         <label for="uid">Uid del usuario a Visualizar:</label><br>
         <input type="text" id="uid" name="uid" required><br><br>
         <label for="unorg">Unidad Organizativa del usuario:</label><br>
         <input type="text" id="unorg" name="unorg" required><br><br>
         <input type="submit" value="Visualizar">
     </form><br>
-     <a href="http://zend-aifrya.fjeclot.net/projecteAifrya/menu.php">Torna al menú</a>
+     <a href="https://zend-aifrya.fjeclot.net/projecteAifrya/menu.php">Torna al menú</a>
 </body>
 </html>

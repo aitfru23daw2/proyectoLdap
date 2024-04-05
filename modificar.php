@@ -5,7 +5,7 @@
 </head>
 <body>
 <h2>Modificar Atributs d'Usuari</h2>
-    <form action="http://zend-aifrya.fjeclot.net/projecteAifrya/modificar.php" method="POST">
+    <form action="https://zend-aifrya.fjeclot.net/projecteAifrya/modificar.php" method="POST">
  
     UID: <input type="text" name="uid"><br>
     Unitat Organitzativa: <input type="text" name="unorg"><br>
@@ -28,7 +28,7 @@
     <input type="submit" value="Modificar">
     <input type="reset" value="Neteja">
 </form>
-<a href="http://zend-aifrya.fjeclot.net/projecteAifrya/menu.php">Torna al menú</a>
+<a href="https://zend-aifrya.fjeclot.net/projecteAifrya/menu.php">Torna al menú</a>
 </body>
 </html>
 <?php
